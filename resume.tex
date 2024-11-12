@@ -1,0 +1,119 @@
+%-------------------------------------
+% Resume in LaTeX
+% Author: Cesar Arguello
+% 
+% Project: 
+% Base on: https://github.com/xyz-yuanhf/yuan-resume
+% License: MIT
+%------------------------------------
+
+\documentclass[a4paper, 10pt]{article}
+\usepackage{myresume}  % Style package
+\pagenumbering{gobble}
+
+% --------------------  START  --------------------
+\begin{document}
+
+% -------------------- HEADING --------------------
+\begin{flushright}
+  \setstretch{0.6}
+  \item {\Calluna cesar.n.arguello.martinez.gr@dartmouth.edu}  % E-mail address
+  \item {\Calluna https://www.carguellom.com}  % Home page
+\end{flushright}\vspace{-45pt}
+
+\begin{flushleft}  % Rplace here with your name (and identity if required)
+  {\Calluna \fontsize{30pt}{30pt}\selectfont \textsc{Cesar Arguello}} %\quad {\Calluna \fontsize{14.5pt}{14.5pt}\selectfont \textsc{Ph.D.}}%
+  \noindent\rule{\textwidth}{0.4pt}
+\end{flushleft}
+
+% -------------------- EDUCATION --------------------
+\sectionBlock{
+\section{Education}
+}{
+\eduHeading
+  {Ph.D. in Computer Science}{September 2022-June 2027\footnotesize{\textit{(expected)}}}
+  {Dartmouth College}{Hanover, NH, USA}
+\itemListStart
+  \myItem{Advisor: Dr. David Kotz}
+  \myItem{Research area: Security and Privacy in the Lifecycle of IoT for Consumer Environments}
+\itemListEnd
+
+\eduHeading
+  {B.S. in Physics \& Computer Science}{August 2018-May 2022}
+  {University of Florida}{Gainesville, FL, USA}
+\itemListStart
+  \myItem{Graduted Cum Laude}
+  \myItem{Selected for Honors Program}
+\itemListEnd
+
+}
+
+% -------------------- PUBLICATIONS --------------------
+\sectionBlock{
+\section{Publications}
+}{
+\pubListStart
+\justifying
+\item \textbf{Cesar Arguello}, Beatrice Perez, Timothy J. Pierson, and David Kotz. Detecting Battery Cells with Harmonic Radar. \textit{Proceedings of the ACM Conference on Security and Privacy in Wireless and Mobile Networks (WiSec)}, 2024.
+\item Timothy J. Pierson, \textbf{Cesar Arguello}, Beatrice Perez, Wondimu Zegeye, Kevin Kornegay, Carl Gunter, and David Kotz. We need a “building inspector for IoT” when smart homes are sold. \textit{IEEE Security \& Privacy}, 2024.
+\item Beatrice Perez, \textbf{Cesar Arguello}, Timothy J. Pierson, Gregory Mazzaro, and David Kotz.\textit{Proceedings of the IEEE Military Communications Conference (MILCOM)}, 2023.
+\item \textbf{Cesar Arguello}, Hunter Searle, Sara Rampazzi, Kevin Butler. [Poster]: A practical methodology for ML-Based EM Side Channel Disassemblers. \textit{Proceedings of the 2022 Poster Session of the 7th IEEE European Symposium on Security and Privacy}, 2022.
+\pubListEnd
+}
+
+
+% -------------------- INDUSTRY EXPERIENCE --------------------
+\sectionBlock{
+\section{Industry Experience}
+}{
+\eduHeading
+  {Product Development Engineer Intern}{January 2022-May 2022 }
+  {Intel Corporation}{Santa Clara, CA, USA}
+\itemListStart
+  \myItem{Design, develop, and debug sort test programs for server products.}
+  \myItem{Test, validate, modify, and redesign circuits to guarantee component margin to
+  specification.}
+  \myItem{Analyze and evaluate component specification versus performance to ensure optimal
+  match of component requirements with production equipment capability.}
+\itemListEnd
+}
+
+%---------------- TEACHING EXPERIENCE -------------------------\begin{itemize}
+\sectionBlock{
+  \section{Teaching Experience}
+}{
+\teachHeading
+    {Graduted Teaching Assistant}{September 2022-January 2023}
+    {Dartmouth College}{Hanover, NH, USA}
+    {CS50 - Software Design \& Implementation}
+\teachHeading
+    {Undergraduate Teaching Assistant}{January 2021-May 2021}
+    {University of Florida}{Gainesville, FL, USA}
+    {CDA3101 - Introduction to Computer Organization}
+}
+
+% -------------------- AWARDS & HONORS --------------------
+\sectionBlock{
+\section{Awards\\and\\Honors}
+}{
+\awardListStart
+\justifying
+\item \emph{Academic Scholarship}, Davis UWC Scholars \hfill August 2018
+\item \emph{Honor Society}, Phi Betta Kappa \hfill May 2022
+\awardListEnd
+}
+
+% -------------------- SKILLS --------------------
+\sectionBlock{
+\section{Skills}
+}{
+\skillListStart
+\justifying
+\item \emph{Languages}: English, Spanish.
+\item \emph{Programming}: {\Courier \fontsize{11pt}{11pt}\selectfont Python}, {\Courier \fontsize{11pt}{11pt}\selectfont C}, {\Courier \fontsize{11pt}{11pt}\selectfont C++}, {\Courier \fontsize{11pt}{11pt}\selectfont x86}.
+\skillListEnd
+}
+
+
+\end{document}
+
