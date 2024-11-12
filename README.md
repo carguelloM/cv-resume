@@ -7,6 +7,4 @@ To compile run:
 ```bash
 lualatex resume.tex
 ```
-```
-```
  
