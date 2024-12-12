@@ -20,6 +20,10 @@
 \documentclass{resume} % Use the custom resume.cls style
 \usepackage[left=0.7in,top=0.4in,right=0.7in,bottom=0.5in]{geometry} % Document margins
 \usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
 %----------------------------------------------------------------------------------------
 %   DOCUMENT START
 %----------------------------------------------------------------------------------------
@@ -52,24 +56,6 @@ Environments
 \end{rSubsection}
 \end{rSection}
 
-%---------------------------------------------------------------------------------------
-% PUBLICATIONS
-%----------------------------------------------------------------------------------------
-\begin{rSection}{Publications}
-  \begin{rSubsection_Conference}{Conference Papers}
-    \item \textbf{Cesar Arguello}, Beatrice Perez, Timothy J. Pierson, and David Kotz. Detecting Battery Cells with Harmonic Radar. \textit{Proceedings of the ACM Conference on Security and Privacy in Wireless and Mobile Networks (WiSec)}, 2024. Acceptance rate 21\%.
-    \item Beatrice Perez, \textbf{Cesar Arguello}, Timothy J. Pierson, Gregory Mazzaro, and David Kotz. \textit{Proceedings of the IEEE Military Communications Conference (MILCOM)}, 2023. Acceptance rate 40\%. 
-  \end{rSubsection_Conference}
-
-  \begin{rSubsection_Journal}{Journal Articles}
-  \item Timothy J. Pierson, \textbf{Cesar Arguello}, Beatrice Perez, Wondimu Zegeye, Kevin Kornegay, Carl Gunter, and David Kotz. We need a “building inspector for IoT” when smart homes are sold. \textit{IEEE Security \& Privacy}, 2024. 
-  \end{rSubsection_Journal}
-
-  \begin{rSubsection_Poster}{Posters}
-  \item \textbf{Cesar Arguello}, Hunter Searle, Sara Rampazzi, Kevin Butler. [Poster]: A practical methodology for ML-Based EM Side Channel Disassemblers. \textit{Proceedings of the 2022 Poster Session of the 7th IEEE European Symposium on Security and Privacy}, 2022.
-  \end{rSubsection_Poster}
-\end{rSection}
-
 %--------------------------------------------------------------------------------------- 
 %   INDUSTRY EXPERIENCE SECTION
 %----------------------------------------------------------------------------------------
@@ -88,7 +74,29 @@ match of component requirements with production equipment capability.
 %   Research EXPERIENCE
 %----------------------------------------------------------------------------------------
 \begin{rSection}{Research Experience}
+  \begin{rSubsection_ra}{Gradute Research Assistant}{January 2023 - Present}{Dartmouth College}{Hanover, NH, USA}{Department of Computer Science}{Dr. David Kotz and Dr. Timothy Pierson}
+    \item Maintain a C, C++, and Python codebase for a harmonic radar controller, ensuring optimal performance and reliability for various research applications. 
+    \item Design and implement experiments and circuit prototypes for novel applications of harmonic radars in IoT security, focusing on advancing research and practical use cases.
+    \item Develop comprehensive research plans targeting conference and journal publications while actively reviewing and discussing relevant literature on IoT security.
+  \end{rSubsection_ra}
+  \begin{rSubsection_ra}{Research Assistant}{June 2021 - May 2022}{Univeristy of Florida}{Gainesville, FL, USA}{Florida Institute of Cybersecurity}{Dr. Sara Rampazzi and Dr. Kevin Butler}
+  \item Designed and developed experiments to test theoretical frameworks on EM side channel disassembly.
+  \item Collected, processed, and analyzed EM traces using statistical and machine learning models.
+  \item Developed research plans leading to the successful completion of project deliverables (publications, presentations, etc.).
+  \end{rSubsection_ra}
+  \begin{rSubsection_ra}{Research Assistant}{May 2021 - May 2022}{Univeristy of Florida}{Gainesville, FL, USA}{Department of Physics, SuperCDMS HVeV-DMC Data Analysis and Simulations Team}{Dr. Tarek Saab}
+  \item Designed and developed Ionization Measurement with Phonons At Cryogenic Temperatures (IMPACT) simulation files for the Geant4 simulator.
+  \item Analyzed Geant4 simulation results with Python.
+  \item Lead discussions about Geant4 simulation results. 
+  \end{rSubsection_ra}
+
+  \begin{rSubsection_ra}{Research Assistant}{August 2020 - February 2021}{Univeristy of Florida}{Gainesville, FL, USA}{Department of Mechanical and Aerospace Engineering, ADAMUS Lab}{Dr. Riccardo Bevilacqua}
+    \item Designed, developed, and deployed C++ libraries for control of a CubeSat's magnetometers, EPS, and battery, utilizing I2C protocol communication and integrating with Beagle Bone Black microcontroller.
+    \item Tested and debugged flight component prototypes.
+    \item Authored weekly project reports highlighting software development achievements, challenges faced, and innovative solutions implemented during the development of flight software.
+  \end{rSubsection_ra}
 \end{rSection}
+
 %----------------------------------------------------------------------------------------
 %   TEACHING EXPERIENCE
 %----------------------------------------------------------------------------------------
@@ -106,61 +114,86 @@ match of component requirements with production equipment capability.
 \end{rSection}
 
 
+%---------------------------------------------------------------------------------------
+% PUBLICATIONS
+%----------------------------------------------------------------------------------------
+\begin{rSection}{Publications}
+  \begin{rSubsection_Conference}{Conference Papers}
+    \item Ravindra Mangar, \textbf{Cesar Arguello}, David Inyangson, Tina Pavlovich, Karen Gareis, and Tushar Jois. \textit{Proceedings of the 56th ACM Technical Symposium on Computer Science Edu-
+cation V. 1 (SIGCSE TS)}, 2025. Acceptance rate 33\%.
+    \item \textbf{Cesar Arguello}, Beatrice Perez, Timothy J. Pierson, and David Kotz. Detecting Battery Cells with Harmonic Radar. \textit{Proceedings of the ACM Conference on Security and Privacy in Wireless and Mobile Networks (WiSec)}, 2024. Acceptance rate 21\%.
+    \item Beatrice Perez, \textbf{Cesar Arguello}, Timothy J. Pierson, Gregory Mazzaro, and David Kotz. \textit{Proceedings of the IEEE Military Communications Conference (MILCOM)}, 2023. Acceptance rate 40\%. 
+  \end{rSubsection_Conference}
 
+  \begin{rSubsection_Journal}{Journal Articles}
+  \item Timothy J. Pierson, \textbf{Cesar Arguello}, Beatrice Perez, Wondimu Zegeye, Kevin Kornegay, Carl Gunter, and David Kotz. We need a “building inspector for IoT” when smart homes are sold. \textit{IEEE Security \& Privacy}, 2024. 
+  \end{rSubsection_Journal}
+
+  \begin{rSubsection_Poster}{Posters}
+  \item \textbf{Cesar Arguello}, Hunter Searle, Sara Rampazzi, Kevin Butler. [Poster]: A practical methodology for ML-Based EM Side Channel Disassemblers. \textit{Proceedings of the 2022 Poster Session of the 7th IEEE European Symposium on Security and Privacy}, 2022.
+  \end{rSubsection_Poster}
+\end{rSection}
+
+
+%---------------------------------------------------------------------------------------
+% Projects
+%----------------------------------------------------------------------------------------
 \begin{rSection}{Projects}
-\begin{rSubsection}{Strength Journal Mobile App}{June 2017}{}{}
-\item Published Android app that allows users to log workout stats with minimal hassle
-\item Applied test-driven development when implementing features to ensure quality of product
+\begin{rSubsection_project}{SDR FM Radio Demodulator}{August 2024}
+Real Time FM radio demodulator for HackRF and RTL SDR written in Python. \underline{Future Work}: Support other SDRs and improve audio streaming. [\href{https://github.com/carguelloM/sdr-fm-radio}{GitHub Repository}]
+\end{rSubsection_project}
+
+\begin{rSubsection_project}{Bi-detectional Intercom}{Novermber 2021}
+Bi-directional intercom based on operational amplifiers, BJT transistors, and diodes. [LTSPice Sim]
+\end{rSubsection_project}
+
+\begin{rSubsection_project}{Shell for UNIX-Based Systems}{January 2021}
+A shell for Unix-based system with basic capabilities, such as
+I/O redirection, piping, wildcarding, tilde-expansion, and background processing. [\href{https://github.com/carguelloM/CPshell}{GitHub Repository}]
+\end{rSubsection_project}
+
+
+\end{rSection}
+
+%---------------------------------------------------------------------------------------
+% Other Academic Activities 
+%----------------------------------------------------------------------------------------
+\begin{rSection}{Other Academic Activities}
+\textbf{Student Participant}, CyberTruck Challenge \hfill \textit{June 2024}
+\end{rSection}
+%--------------------------------------------------------------------------------------- 
+%   OTHER EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Other Experience}
+\begin{rSubsection}{Audio Visual Specialist}{May 2019 - March 2022}{J. Wayne Reitz Union}{Gainesville, FL, USA}
+  \item Managed and installed audio-visual equipment for shows, meeting, and events held at the
+J. Wayne Reitz Union.
+  \item Aided costumers with audio-visual technical difficulties.
 \end{rSubsection}
-\begin{rSubsection}{School Newspaper Website}{May 2017}{Contributer}{}
-\item Constructed unit tests for REST API that increased coverage by 5\%
-\item Implemented REST API endpoints for the User model 
-\end{rSubsection}
-\begin{rSubsection}{C++ Blob Combat Simulation}{May 2017}{}{}
-\item Developed a simulation where "blobs" evolve to fight using genetic algorithms like proportional and tournament selection
-\item Applied linear algebra concepts to efficiently implement a Neural Network and collision detection
-\item Built the simulation independent of real elapsed time enabling "fast forward" feature to significantly reduce training time  
-\end{rSubsection}
-\iffalse
-\begin{rSubsection}{UUP SIAM - Direct Tap Machine Learning}{April 2017 - Present}{}{City One, UP}
-\item Built a model to visualize the correlation between order quantity and seasonality, using Python pandas and matplotlib
-\end{rSubsection}
-\fi
-\begin{rSubsection}{Design Project - Water Jet Propelled Vehicle}{April 2015 - May 2015}{}{City One, UP}
-\item Developed MATLAB time marching simulation which optimized water to air ratio and predicted the vehicle speed to within 12\%
-\item Programmed Arduino micro-controller to control steering and valve servos using RF transmitter/receiver
-\end{rSubsection}
-\iffalse
-\begin{rSubsection}{JavaScript 8 Puzzle Solver}{December 2016}{}{}
-\item Developed a sliding puzzle solver in pure JavaScript to animate a step by step solution
-\item Is able to solve 3x3 tile board in less than 1 second using the A* algorithm
-\end{rSubsection}
-\fi
 \end{rSection}
 
 %----------------------------------------------------------------------------------------
 %   TECHNICAL STRENGTHS SECTION
 %----------------------------------------------------------------------------------------
-\iffalse
 \begin{rSection}{Technical Skills}
 
 \begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
-Languages & Python, MATLAB, C++, C\#, VBA, LaTex, SQL \\
-Software & SolidWorks (CSWA Certified), Microsoft Excel, Git, SAP  \\
-Tools & Micro-controllers, Machine Shop Tools (Lathe, Mill)  \\
-Web skills & HTML5, CSS, JavaScript, JQuery, Flask, Selenium \\
+Languages & English, Spanish \\
+Programming Languages & Python, MATLAB, C++, C, LaTex, x86\\
+Frameworks & Pytorch \\
+Software & Microsoft Suite, Git, GDB, Wireshark \\
+Web skills & HTML5, CSS \\
 \end{tabular}
 
 \end{rSection}
-\fi
 %----------------------------------------------------------------------------------------
-%   INTERESTS
+%   Awards
 %----------------------------------------------------------------------------------------
-\iffalse
-\begin{rSection}{Interests}
-Cycling\hspace{1cm}Basketball\hspace{1cm}Soccer\hspace{1cm}Automation\hspace{1cm}Electronics Hobbyist
+\begin{rSection}{Awards}
+\textbf{Latin Honors}, Cum Laude B.S. \hfill \textit{May 2022} \\
+\textbf{Honor Society}, Phi Betta Kappa \hfill \textit{May 2022} \\
+\textbf{Academic Scholarship}, Davis UWC Scholar \hfill \textit{August 2018} 
 \end{rSection}
-\fi
-%----------------------------------------------------------------------------------------
 
 \end{document}
