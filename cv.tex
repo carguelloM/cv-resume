@@ -1,211 +1,249 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Cesar Arguello -- Curriculum Vitae
 %
-% This template has been downloaded from:
-% http://www.LaTeXTemplates.com
+% Requires resume.cls (Trey Hunner, http://www.treyhunner.com/) in the same
+% directory, with the custom rSubsection_ra / _ta / _Conference / _Journal /
+% _Poster environments already added.
 %
-% Original author:
-% Trey Hunner (http://www.treyhunner.com/)
-%
-% Important note:
-% This template requires the resume.cls file to be in the same directory as the
-% .tex file. The resume.cls file provides the resume style used for structuring the
-% document.
-%
+% Compile with pdfLaTeX. If you switch to XeLaTeX or LuaLaTeX, delete the
+% \usepackage[utf8]{inputenc} line below.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%----------------------------------------------------------------------------------------
-%   PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
-%----------------------------------------------------------------------------------------
+\documentclass{resume}
 
-\documentclass{resume} % Use the custom resume.cls style
-\usepackage[left=0.7in,top=0.4in,right=0.7in,bottom=0.5in]{geometry} % Document margins
+%----------------------------------------------------------------------------------------
+%   FONTS AND ENCODING
+%   Loading T1 + Latin Modern avoids Type 3 bitmap font substitution, which is the
+%   most common reason a Computer Modern PDF renders heavy/smudged on screen.
+%----------------------------------------------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+
+%----------------------------------------------------------------------------------------
+%   LAYOUT
+%----------------------------------------------------------------------------------------
+\usepackage[left=0.7in,top=0.4in,right=0.7in,bottom=0.6in]{geometry}
 \usepackage{enumitem}
 \usepackage{xcolor}
-\usepackage{hyperref}
 
-\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
+
+%----------------------------------------------------------------------------------------
+%   LINKS (hyperref last)
+%----------------------------------------------------------------------------------------
+\usepackage{hyperref}
+\definecolor{linknavy}{HTML}{14416E}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=linknavy,
+  urlcolor=linknavy,
+  citecolor=linknavy,
+  pdfauthor={Cesar Arguello},
+  pdftitle={Cesar Arguello -- Curriculum Vitae}
+}
+
+%----------------------------------------------------------------------------------------
+%   HELPERS
+%----------------------------------------------------------------------------------------
+% resume.cls always opens a bullet list inside rSubsection. Use \nobullets to
+% close it cleanly when a block has no bullet points, instead of repeating the
+% \vspace{-.65cm}\item[] hack everywhere.
+\newcommand{\nobullets}{\item[]\vspace{-1.7em}}
+
+
 %----------------------------------------------------------------------------------------
 %   DOCUMENT START
 %----------------------------------------------------------------------------------------
-\name{Cesar Arguello} % Your name
-\address{cesar.n.arguello.martinez.gr@dartmouth.edu \\ www.carguellom.com}
-\begin{document}
-\title{cesar_vita}
-%----------------------------------------------------------------------------------------
-%   EDUCATION SECTION
-%----------------------------------------------------------------------------------------
+\name{Cesar Arguello}
+\address{%
+  \href{mailto:cesar.n.arguello.martinez.gr@dartmouth.edu}{cesar.n.arguello.martinez.gr@dartmouth.edu} \\
+  \href{https://www.carguellom.com}{carguellom.com} \quad\textbar\quad
+  \href{https://github.com/carguelloM}{github.com/carguelloM}%
+  % \quad\textbar\quad \href{https://scholar.google.com/citations?user=XXXX}{Google Scholar}
+  % \quad\textbar\quad \href{https://orcid.org/0000-0000-0000-0000}{ORCID}
+}
 
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%   EDUCATION
+%----------------------------------------------------------------------------------------
 \begin{rSection}{Education}
 
-\begin{rSubsection}{Ph.D. in Computer Science}{September 2022 - Present}{Dartmouth College}{Hanover, NH, USA}
-  \vspace{-.1cm}
-  \textbf{Advisor}: Dr. David Kotz\\ \textbf{Research Area}: Security and Privacy in the Lifecycle of IoT for Consumer
-Environments
-  \vspace{-.65cm}
-  \item[]
+\begin{rSubsection}{Ph.D. in Computer Science}{September 2022 -- Present}{Dartmouth College}{Hanover, NH, USA}
+  \item[] \textbf{Advisor:} Dr.~David Kotz \\
+          \textbf{Research area:} Security and privacy in the lifecycle of IoT for consumer environments
 \end{rSubsection}
 
-\begin{rSubsection}{B.S. in Physics \& Computer Science}{August 2018 - May 2022}{University of Florida}{Gainesville, FL, USA}
-  \vspace{-.65cm}
-  \item[]
+\begin{rSubsection}{B.S. in Physics \& Computer Science}{August 2018 -- May 2022}{University of Florida}{Gainesville, FL, USA}
+  \nobullets
 \end{rSubsection}
 
-\begin{rSubsection}{International Baccalaureate Diploma Programme (IB)}{August 2016 - May 2018}{UWC Red Cross Nordic}{Flekke, Norway}
-  \vspace{-.65cm}
-  \item[]
+\begin{rSubsection}{International Baccalaureate Diploma Programme}{August 2016 -- May 2018}{UWC Red Cross Nordic}{Flekke, Norway}
+  \nobullets
 \end{rSubsection}
-\end{rSection}
 
-%--------------------------------------------------------------------------------------- 
-%   INDUSTRY EXPERIENCE SECTION
-%----------------------------------------------------------------------------------------
-
-\begin{rSection}{Insustry Experience}
-\begin{rSubsection}{Product Development Engineer Intern}{January 2022 - May 2022}{Intel Corporation}{Santa Clara, CA, USA}
-  \item Designed, developed, and debugged sort test programs for server products. 
-  \item Tested, validated, modified, and redesigned circuits to guarantee component margin to
-specification. 
-  \item Analyzed and evaluated component specification versus performance to ensure optimal
-match of component requirements with production equipment capability.
-\end{rSubsection}
 \end{rSection}
 
 %----------------------------------------------------------------------------------------
-%   Research EXPERIENCE
+%   PUBLICATIONS
+%----------------------------------------------------------------------------------------
+\begin{rSection}{Publications}
+
+  \begin{rSubsection_Conference}{Conference Papers}
+    \item Ravindra Mangar, \textbf{Cesar Arguello}, David Inyangson, Tina Pavlovich, Karen Gareis, and Tushar Jois. Engaging students from under-represented groups to pursue graduate school in computer science and engineering. \textit{Proceedings of the 56th ACM Technical Symposium on Computer Science Education (SIGCSE TS)}, 2025. Acceptance rate 33\%.
+    \item \textbf{Cesar Arguello}, Beatrice Perez, Timothy J. Pierson, and David Kotz. Detecting battery cells with harmonic radar. \textit{Proceedings of the ACM Conference on Security and Privacy in Wireless and Mobile Networks (WiSec)}, 2024. Acceptance rate 21\%.
+    \item Beatrice Perez, \textbf{Cesar Arguello}, Timothy J. Pierson, Gregory Mazzaro, and David Kotz. Evaluating the practical range of harmonic radar to detect smart electronics. \textit{Proceedings of the IEEE Military Communications Conference (MILCOM)}, 2023. Acceptance rate 40\%.
+  \end{rSubsection_Conference}
+
+  \begin{rSubsection_Journal}{Journal Articles}
+    \item Timothy J. Pierson, \textbf{Cesar Arguello}, Beatrice Perez, Wondimu Zegeye, Kevin Kornegay, Carl Gunter, and David Kotz. We need a ``building inspector for IoT'' when smart homes are sold. \textit{IEEE Security \& Privacy}, 2024.
+  \end{rSubsection_Journal}
+
+  % Optional: uncomment if you want work-in-progress visible to hiring/fellowship
+  % committees. Keep the venue name but do not imply acceptance.
+  % \begin{rSubsection_Conference}{Manuscripts Under Review}
+  %   \item \textbf{Cesar Arguello}, \ldots. <Paper title>. Under major revision, \textit{Network and Distributed System Security Symposium (NDSS)}, 2027.
+  % \end{rSubsection_Conference}
+
+  \begin{rSubsection_Poster}{Posters}
+    \item \textbf{Cesar Arguello}, Hunter Searle, Sara Rampazzi, and Kevin Butler. [Poster] A practical methodology for ML-based EM side-channel disassemblers. \textit{Proceedings of the Poster Session of the 7th IEEE European Symposium on Security and Privacy (EuroS\&P)}, 2022.
+  \end{rSubsection_Poster}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%   PATENTS
+%----------------------------------------------------------------------------------------
+\begin{rSection}{Patents}
+  \begin{itemize}[leftmargin=2em, label=$\cdot$, topsep=0pt, itemsep=0.2em, parsep=0pt]
+    \item \textbf{Cesar Arguello}, Beatrice Perez, Timothy J. Pierson, and David Kotz. Harmonic radar for battery detection. U.S. Patent Application US19/216,352. Filed May 22, 2025. \textit{(Pending.)}
+  \end{itemize}
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%   RESEARCH EXPERIENCE
 %----------------------------------------------------------------------------------------
 \begin{rSection}{Research Experience}
-  \begin{rSubsection_ra}{Gradute Research Assistant}{January 2023 - Present}{Dartmouth College}{Hanover, NH, USA}{Department of Computer Science}{Dr. David Kotz and Dr. Timothy Pierson}
-   \item Design, implement, and debug embedded systems across the hardware-software stack in C, C++, Python, and Verilog, building real-time wireless systems on software-defined radio platforms.
-    \item Design and implement experiments and circuit prototypes for novel applications of harmonic radars in IoT security, focusing on advancing research and practical use cases.
-    \item Develop comprehensive research plans targeting conference and journal publications while actively reviewing and discussing relevant literature on IoT security.
-  \end{rSubsection_ra}
-  \begin{rSubsection_ra}{Research Assistant}{June 2021 - May 2022}{Univeristy of Florida}{Gainesville, FL, USA}{Florida Institute of Cybersecurity}{Dr. Sara Rampazzi and Dr. Kevin Butler}
-  \item Designed and developed experiments to test theoretical frameworks on EM side channel disassembly.
-  \item Collected, processed, and analyzed EM traces using statistical and machine learning models.
-  \item Developed research plans leading to the successful completion of project deliverables (publications, presentations, etc.).
-  \end{rSubsection_ra}
-  \begin{rSubsection_ra}{Research Assistant}{May 2021 - May 2022}{Univeristy of Florida}{Gainesville, FL, USA}{Department of Physics, SuperCDMS HVeV-DMC Data Analysis and Simulations Team}{Dr. Tarek Saab}
-  \item Designed and developed Ionization Measurement with Phonons At Cryogenic Temperatures (IMPACT) simulation files for the Geant4 simulator.
-  \item Analyzed Geant4 simulation results with Python.
-  \item Lead discussions about Geant4 simulation results. 
+
+  \begin{rSubsection_ra}{Graduate Research Assistant}{January 2023 -- Present}{Dartmouth College}{Hanover, NH, USA}{Department of Computer Science}{Dr.~David Kotz and Dr.~Timothy Pierson}
+    \item Design, implement, and debug embedded systems across the hardware--software stack in C, C++, Python, and Verilog, building real-time wireless systems on software-defined radio platforms.
+    \item Design and implement experiments and circuit prototypes for novel applications of harmonic radar in IoT security, spanning theoretical modeling through field measurement.
+    \item Develop research plans targeting conference and journal publication, and review and synthesize the IoT security literature to position new work.
   \end{rSubsection_ra}
 
-  \begin{rSubsection_ra}{Research Assistant}{August 2020 - February 2021}{Univeristy of Florida}{Gainesville, FL, USA}{Department of Mechanical and Aerospace Engineering, ADAMUS Lab}{Dr. Riccardo Bevilacqua}
-    \item Designed, developed, and deployed C++ libraries for control of a CubeSat's magnetometers, EPS, and battery, utilizing I2C protocol communication and integrating with Beagle Bone Black microcontroller.
-    \item Tested and debugged flight component prototypes.
-    \item Authored weekly project reports highlighting software development achievements, challenges faced, and innovative solutions implemented during the development of flight software.
+  \begin{rSubsection_ra}{Research Assistant}{June 2021 -- May 2022}{University of Florida}{Gainesville, FL, USA}{Florida Institute for Cybersecurity Research}{Dr.~Sara Rampazzi and Dr.~Kevin Butler}
+    \item Designed and ran experiments to test theoretical frameworks for EM side-channel disassembly.
+    \item Collected, processed, and analyzed EM traces using statistical and machine learning models.
+    \item Developed research plans leading to project deliverables, including a peer-reviewed poster.
   \end{rSubsection_ra}
+
+  \begin{rSubsection_ra}{Research Assistant}{May 2021 -- May 2022}{University of Florida}{Gainesville, FL, USA}{Department of Physics, SuperCDMS HVeV-DMC Data Analysis and Simulations Team}{Dr.~Tarek Saab}
+    \item Built Ionization Measurement with Phonons At Cryogenic Temperatures (IMPACT) simulation files for the Geant4 simulator.
+    \item Analyzed Geant4 simulation output in Python.
+    \item Led group discussions on simulation results.
+  \end{rSubsection_ra}
+
+  \begin{rSubsection_ra}{Research Assistant}{August 2020 -- February 2021}{University of Florida}{Gainesville, FL, USA}{Department of Mechanical and Aerospace Engineering, ADAMUS Lab}{Dr.~Riccardo Bevilacqua}
+    \item Designed, developed, and deployed C++ libraries controlling a CubeSat's magnetometers, EPS, and battery over I\textsuperscript{2}C, integrated with a BeagleBone Black microcontroller.
+    \item Tested and debugged flight component prototypes.
+    \item Authored weekly reports on flight software progress, blockers, and design decisions.
+  \end{rSubsection_ra}
+
 \end{rSection}
 
 %----------------------------------------------------------------------------------------
 %   TEACHING EXPERIENCE
 %----------------------------------------------------------------------------------------
 \begin{rSection}{Teaching Experience}
-\begin{rSubsection_ta}{Gradute Teaching Assitant}{September 2022 - January 2023}{Dartmouth College}{Hanover, NH, USA}{CS50: Software Design and Implementation}
-  \item Developed and maintained automated grading scripts using Bash and Python to evaluate student assignments.
-  \item Conducted in-depth code reviews for programming projects, providing constructive feedback to enhance code quality, efficiency, and adherence to best practices.
-  \item Held office hours to provide one-on-one mentorship to students on course material and programming projects.
-\end{rSubsection_ta}
-\begin{rSubsection_ta}{Undergraduate Teaching Assistant}{January 2021 - May 2021}{Univeristy of Florida}{Gainesville, FL, USA}{CDA3101: Introduction to Computer Organization}
-\item Assisted student achieved proposed academic goals by leading discussions on lecture material. 
-\item Supported instructors by managing the evaluation of course assignments and providing detailed feedback to students.
-\item Held office hours to review course material, answer general questions, and provide some assistance on assignments.
-\end{rSubsection_ta}
+
+  \begin{rSubsection_ta}{Graduate Teaching Assistant}{September 2022 -- January 2023}{Dartmouth College}{Hanover, NH, USA}{CS 50: Software Design and Implementation}
+    \item Built and maintained automated grading scripts in Bash and Python for student assignments.
+    \item Conducted code reviews for programming projects, giving feedback on correctness, efficiency, and style.
+    \item Held office hours providing one-on-one mentorship on course material and projects.
+  \end{rSubsection_ta}
+
+  \begin{rSubsection_ta}{Undergraduate Teaching Assistant}{January 2021 -- May 2021}{University of Florida}{Gainesville, FL, USA}{CDA 3101: Introduction to Computer Organization}
+    \item Led discussion sections on lecture material to help students meet course learning objectives.
+    \item Managed assignment evaluation and provided detailed written feedback.
+    \item Held office hours to review course material and answer questions on assignments.
+  \end{rSubsection_ta}
+
 \end{rSection}
 
-
-%---------------------------------------------------------------------------------------
-% PUBLICATIONS
 %----------------------------------------------------------------------------------------
-\begin{rSection}{Publications}
-  \begin{rSubsection_Conference}{Conference Papers}
-    \item Ravindra Mangar, \textbf{Cesar Arguello}, David Inyangson, Tina Pavlovich, Karen Gareis, and Tushar Jois. Engaging Students from Under-Represented Groups to Pursue Graduate School in Computer Science and Engineering. \textit{Proceedings of the 56th ACM Technical Symposium on Computer Science Education V. 1 (SIGCSE TS)}, 2025. Acceptance rate 33\%.
-    \item \textbf{Cesar Arguello}, Beatrice Perez, Timothy J. Pierson, and David Kotz. Detecting Battery Cells with Harmonic Radar. \textit{Proceedings of the ACM Conference on Security and Privacy in Wireless and Mobile Networks (WiSec)}, 2024. Acceptance rate 21\%.
-    \item Beatrice Perez, \textbf{Cesar Arguello}, Timothy J. Pierson, Gregory Mazzaro, and David Kotz. Evaluating the practical range of harmonic radar to detect smart electronics \textit{Proceedings of the IEEE Military Communications Conference (MILCOM)}, 2023. Acceptance rate 40\%. 
-  \end{rSubsection_Conference}
+%   INDUSTRY EXPERIENCE
+%----------------------------------------------------------------------------------------
+\begin{rSection}{Industry Experience}
 
-  \begin{rSubsection_Journal}{Journal Articles}
-  \item Timothy J. Pierson, \textbf{Cesar Arguello}, Beatrice Perez, Wondimu Zegeye, Kevin Kornegay, Carl Gunter, and David Kotz. We need a “building inspector for IoT” when smart homes are sold. \textit{IEEE Security \& Privacy}, 2024. 
-  \end{rSubsection_Journal}
+\begin{rSubsection}{Product Development Engineer Intern}{January 2022 -- May 2022}{Intel Corporation}{Santa Clara, CA, USA}
+  \item Designed, developed, and debugged sort test programs for server products.
+  \item Tested, validated, modified, and redesigned circuits to guarantee component margin to specification.
+  \item Evaluated component specification against measured performance to match component requirements with production equipment capability.
+\end{rSubsection}
 
-  \begin{rSubsection_Poster}{Posters}
-  \item \textbf{Cesar Arguello}, Hunter Searle, Sara Rampazzi, Kevin Butler. [Poster]: A practical methodology for ML-Based EM Side Channel Disassemblers. \textit{Proceedings of the 2022 Poster Session of the 7th IEEE European Symposium on Security and Privacy}, 2022.
-  \end{rSubsection_Poster}
 \end{rSection}
 
-%---------------------------------------------------------------------------------------
-% PATENTS
 %----------------------------------------------------------------------------------------
-\begin{rSection}{Patents}
-[In application] Cesar Arguello, Beatrice Perez, Timothy J. Pierson, and David Kotz. Harmonic radar for battery detection. U.S. Provisional Patent Application 63/651,278, United States Patent and Trademark Office. Filed May 23, 2024. 
-\end{rSection}
-%---------------------------------------------------------------------------------------
-% Projects
-%----------------------------------------------------------------------------------------
-% \begin{rSection}{Projects}
-% \begin{rSubsection_project}{SDR FM Radio Demodulator}{August 2024}
-% Real Time FM radio demodulator for HackRF and RTL SDR written in Python. \underline{Future Work}: Support other SDRs and improve audio streaming. [\href{https://github.com/carguelloM/sdr-fm-radio}{GitHub Repository}]
-% \end{rSubsection_project}
-
-% \begin{rSubsection_project}{Bi-detectional Intercom}{Novermber 2021}
-% Bi-directional intercom based on operational amplifiers, BJT transistors, and diodes. [LTSPice Sim]
-% \end{rSubsection_project}
-
-% \begin{rSubsection_project}{Shell for UNIX-Based Systems}{January 2021}
-% A shell for Unix-based system with basic capabilities, such as
-% I/O redirection, piping, wildcarding, tilde-expansion, and background processing. [\href{https://github.com/carguelloM/CPshell}{GitHub Repository}]
-% \end{rSubsection_project}
-
-
-% \end{rSection}
-
-%---------------------------------------------------------------------------------------
-% Service
+%   SERVICE
 %----------------------------------------------------------------------------------------
 \begin{rSection}{Service}
-\textbf{Artifact Evaluation Committee Member}, NDSS 2027\\
+\textbf{Artifact Evaluation Committee}, Network and Distributed System Security Symposium (NDSS) 2027 \\
 \textbf{External Reviewer}, IEEE GLOBECOM 2026
 \end{rSection}
 
-%---------------------------------------------------------------------------------------
-% Other Academic Activities 
 %----------------------------------------------------------------------------------------
-% \begin{rSection}{Other Academic Activities}
-% \textbf{Student Participant}, CyberTruck Challenge \hfill \textit{June 2024}
-% \end{rSection}
-%--------------------------------------------------------------------------------------- 
-%   OTHER EXPERIENCE SECTION
+%   HONORS AND AWARDS
 %----------------------------------------------------------------------------------------
-
-% \begin{rSection}{Other Experience}
-% \begin{rSubsection}{Audio Visual Specialist}{May 2019 - March 2022}{J. Wayne Reitz Union}{Gainesville, FL, USA}
-%   \item Managed and installed audio-visual equipment for shows, meeting, and events held at the
-% J. Wayne Reitz Union.
-%   \item Aided costumers with audio-visual technical difficulties.
-% \end{rSubsection}
-% \end{rSection}
+\begin{rSection}{Honors \& Awards}
+\textbf{\textit{Cum Laude}}, B.S., University of Florida \hfill \textit{May 2022} \\
+\textbf{Phi Beta Kappa}, Honor Society \hfill \textit{May 2022} \\
+\textbf{Davis United World College Scholar} \hfill \textit{August 2018}
+\end{rSection}
 
 %----------------------------------------------------------------------------------------
-%   TECHNICAL STRENGTHS SECTION
+%   TECHNICAL SKILLS
 %----------------------------------------------------------------------------------------
 \begin{rSection}{Technical Skills}
 
-\begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
-Languages & English, Spanish \\
-Programming Languages & Python, MATLAB, C++, C, Verilog\\
-Frameworks & Pytorch \\
-Software & Microsoft Suite, Git, GDB, Wireshark, GNURadio, Vivado \\
-Web skills & HTML5, CSS \\
+\begin{tabular}{@{} >{\bfseries}p{1.35in} @{\hspace{2ex}} p{\dimexpr\linewidth-1.35in-2ex\relax} @{}}
+Programming       & Python, C, C++, Verilog, MATLAB, Bash \\
+Wireless \& SDR   & GNU Radio, USRP, HackRF, ADALM-Pluto/AntSDR, gr-ieee802-11, openwifi, 802.11 PHY/MAC \\
+Security tooling  & Wireshark, tcpdump, Scapy, aircrack-ng, hostapd, wpa\_supplicant \\
+Libraries         & PyTorch, NumPy, SciPy, scikit-learn, Matplotlib \\
+Tools             & Git, GDB, Vivado, Docker, Linux, \LaTeX{} \\
+Spoken languages  & English, Spanish \\
 \end{tabular}
 
 \end{rSection}
+
 %----------------------------------------------------------------------------------------
-%   Awards
+%   OPTIONAL SECTIONS (kept commented for later use)
 %----------------------------------------------------------------------------------------
-\begin{rSection}{Awards}
-\textbf{Latin Honors}, Cum Laude B.S. \hfill \textit{May 2022} \\
-\textbf{Honor Society}, Phi Betta Kappa \hfill \textit{May 2022} \\
-\textbf{Academic Scholarship}, Davis UWC Scholar \hfill \textit{August 2018} 
-\end{rSection}
+% \begin{rSection}{Projects}
+% \begin{rSubsection_project}{SDR FM Radio Demodulator}{August 2024}
+% Real-time FM radio demodulator for HackRF and RTL-SDR written in Python. \underline{Future work}: support additional SDRs and improve audio streaming. [\href{https://github.com/carguelloM/sdr-fm-radio}{GitHub}]
+% \end{rSubsection_project}
+%
+% \begin{rSubsection_project}{Bi-directional Intercom}{November 2021}
+% Bi-directional intercom built from operational amplifiers, BJT transistors, and diodes. [LTspice simulation]
+% \end{rSubsection_project}
+%
+% \begin{rSubsection_project}{Shell for UNIX-Based Systems}{January 2021}
+% Shell for Unix-based systems supporting I/O redirection, piping, wildcarding, tilde expansion, and background processing. [\href{https://github.com/carguelloM/CPshell}{GitHub}]
+% \end{rSubsection_project}
+% \end{rSection}
+
+% \begin{rSection}{Other Academic Activities}
+% \textbf{Student Participant}, CyberTruck Challenge \hfill \textit{June 2024}
+% \end{rSection}
+
+% \begin{rSection}{Other Experience}
+% \begin{rSubsection}{Audio Visual Specialist}{May 2019 -- March 2022}{J. Wayne Reitz Union}{Gainesville, FL, USA}
+%   \item Managed and installed audio-visual equipment for shows, meetings, and events.
+%   \item Assisted customers with audio-visual technical difficulties.
+% \end{rSubsection}
+% \end{rSection}
 
 \end{document}
