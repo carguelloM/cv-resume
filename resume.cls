@@ -1,244 +1,132 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Medium Length Professional CV - RESUME CLASS FILE
+% Resume / CV class
 %
-% This template has been downloaded from:
-% http://www.LaTeXTemplates.com
+% Based on the class by Trey Hunner (Copyright (C) 2010), distributed via
+% http://www.LaTeXTemplates.com, with the publication-list environments added
+% locally. Copying and distribution of this file, with or without
+% modification, are permitted in any medium without royalty provided the
+% copyright notice and this notice are preserved. Offered as-is, without
+% any warranty.
 %
-% This class file defines the structure and design of the template. 
-%
-% Original header:
-% Copyright (C) 2010 by Trey Hunner
-%
-% Copying and distribution of this file, with or without modification,
-% are permitted in any medium without royalty provided the copyright
-% notice and this notice are preserved. This file is offered as-is,
-% without any warranty.
-%
-% Created by Trey Hunner and modified by www.LaTeXTemplates.com
-%
+% Changes from the previous local version:
+%   * Institution line is italic again, not bold-italic (see \orgfont).
+%   * \sectionfont / \rolefont / \orgfont hooks added so weights can be
+%     changed in one place instead of edited inline.
+%   * Obsolete LaTeX 2.09 \bf and \em switches replaced with \bfseries /
+%     \itshape / \textbf.
+%   * rSubsection_project now has an end-definition (it previously had none
+%     and silently absorbed the following \par as its end code).
+%   * \pcounterlabel no longer contains a blank line, which put a stray \par
+%     inside a list label.
+%   * \address now fills addressone, then two, then three, in that order.
+%   * Bullet lists indent to \rbulletindent so bullets line up under the
+%     role/organisation block instead of hanging left of it.
+%   * \Needspace guard keeps a section heading from stranding at a page foot.
+%   * \usepackage replaced with \RequirePackage, as required in a class file.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\ProvidesClass{resume}[2010/07/10 v0.9 Resume class]
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{resume}[2026/08/27 v1.0 Resume class]
+\LoadClass[11pt,letterpaper]{article}
+\RequirePackage[parfill]{parskip}
+\RequirePackage{array}
+\RequirePackage{ifthen}
+\RequirePackage{needspace}
+\pagestyle{empty}
 
-\LoadClass[11pt,letterpaper]{article} % Font size and paper type
+% Style hooks
+\newcommand{\sectionfont}{\bfseries}
+\newcommand{\rolefont}{\bfseries}
+\newcommand{\orgfont}{\itshape}
+\newcommand{\rbulletindent}{1.5em}
 
-\usepackage[parfill]{parskip} % Remove paragraph indentation
-\usepackage{array} % Required for boldface (\bf and \bfseries) tabular columns
-\usepackage{ifthen} % Required for ifthenelse statements
-
-\pagestyle{empty} % Suppress page numbers
-
-%----------------------------------------------------------------------------------------
-%	HEADINGS COMMANDS: Commands for printing name and address
-%----------------------------------------------------------------------------------------
-
-\def \name#1{\def\@name{#1}} % Defines the \name command to set name
-\def \@name {} % Sets \@name to empty by default
-
-\def \addressSep {$\diamond$} % Set default address separator to a diamond
-
-% One, two or three address lines can be specified 
-\let \@addressone \relax
-\let \@addresstwo \relax
-\let \@addressthree \relax
-
-% \address command can be used to set the first, second, and third address (last 2 optional)
-\def \address #1{
-  \@ifundefined{@addresstwo}{
-    \def \@addresstwo {#1}
-  }{
-  \@ifundefined{@addressthree}{
-  \def \@addressthree {#1}
-  }{
-     \def \@addressone {#1}
-  }}
+\def\name#1{\def\@name{#1}}
+\def\@name{}
+\def\addressSep{$\diamond$}
+\let\@addressone\relax
+\let\@addresstwo\relax
+\let\@addressthree\relax
+\def\address#1{%
+  \@ifundefined{@addressone}{\def\@addressone{#1}}%
+  {\@ifundefined{@addresstwo}{\def\@addresstwo{#1}}%
+  {\def\@addressthree{#1}}}%
 }
-
-% \printaddress is used to style an address line (given as input)
-\def \printaddress #1{
+\def\printaddress#1{%
   \begingroup
-    \def \\ {\addressSep\ }
-    \centerline{#1}
+    \def\\{\addressSep\ }%
+    \centerline{#1}%
+  \endgroup
+  \par\addressskip
+}
+\def\printname{%
+  \begingroup
+    \centerline{\namesize\bfseries\MakeUppercase{\@name}}%
+    \nameskip
   \endgroup
   \par
-  \addressskip
 }
-
-% \printname is used to print the name as a page header
-\def \printname {
-  \begingroup
-    \hfil{\MakeUppercase{\namesize\bf \@name}}\hfil
-    \nameskip\break
-  \endgroup
-}
-
-%----------------------------------------------------------------------------------------
-%	PRINT THE HEADING LINES
-%----------------------------------------------------------------------------------------
-
 \let\ori@document=\document
-\renewcommand{\document}{
-  \ori@document  % Begin document
-  \printname % Print the name specified with \name
-  \@ifundefined{@addressone}{}{ % Print the first address if specified
-    \printaddress{\@addressone}}
-  \@ifundefined{@addresstwo}{}{ % Print the second address if specified
-    \printaddress{\@addresstwo}}
-     \@ifundefined{@addressthree}{}{ % Print the third address if specified
-    \printaddress{\@addressthree}}
+\renewcommand{\document}{%
+  \ori@document
+  \printname
+  \@ifundefined{@addressone}{}{\printaddress{\@addressone}}%
+  \@ifundefined{@addresstwo}{}{\printaddress{\@addresstwo}}%
+  \@ifundefined{@addressthree}{}{\printaddress{\@addressthree}}%
 }
-
-%----------------------------------------------------------------------------------------
-%	SECTION FORMATTING
-%----------------------------------------------------------------------------------------
-
-% Defines the rSection environment for the large sections within the CV
-\newenvironment{rSection}[1]{ % 1 input argument - section name
+\newenvironment{rSection}[1]{%
+  \Needspace*{7\baselineskip}% keep a heading with at least some of its body
   \sectionskip
-  \MakeUppercase{\bf #1} % Section title
+  {\sectionfont\MakeUppercase{#1}}%
   \sectionlineskip
-  \hrule % Horizontal line
-  \begin{list}{}{ % List for each individual item in the section
-    \setlength{\leftmargin}{1.5em} % Margin within the section
-  }
+  \hrule
+  \begin{list}{}{\setlength{\leftmargin}{1.5em}}%
   \item[]
-}{
-  \end{list}
+}{%
+  \end{list}%
 }
-
-%----------------------------------------------------------------------------------------
-%	Publications format 
-%----------------------------------------------------------------------------------------
-% Define separate counters
-\newcounter{cpcounter}
-\newcounter{jacounter}
-\newcounter{pcounter}
-
-%init all counters to zero 
-% \setcounter{cpcounter}{0}
-% \setcounter{jacounter}{0}
-% \setcounter{pcounter}{0}
-
-% display counter
-\newcommand{\cpcounterlabel}{%
-    \stepcounter{cpcounter} % Increment the counter
-    \textbf{CP\thecpcounter} % Format as CPXX
+\newcounter{cpcounter}\newcounter{jacounter}\newcounter{pcounter}
+\newcommand{\cpcounterlabel}{\stepcounter{cpcounter}\textbf{CP\thecpcounter}}
+\newcommand{\jacounterlabel}{\stepcounter{jacounter}\textbf{JA\thejacounter}}
+\newcommand{\pcounterlabel}{\stepcounter{pcounter}\textbf{P\thepcounter}}
+\newcommand{\rPubList}[2]{%
+  \begin{list}{#1}{\setcounter{#2}{0}%
+    \setlength{\labelwidth}{3em}\setlength{\labelsep}{0.5em}%
+    \setlength{\leftmargin}{4em}\setlength{\rightmargin}{5pt}}%
 }
-
-\newcommand{\jacounterlabel}{
-  \stepcounter{jacounter}
-  \textbf{JA\thejacounter}
+\newenvironment{rSubsection_Conference}[1]{%
+  {\rolefont #1}\rPubList{\cpcounterlabel}{cpcounter}%
+}{\end{list}\vspace{0.5em}}
+\newenvironment{rSubsection_Journal}[1]{%
+  {\rolefont #1}\rPubList{\jacounterlabel}{jacounter}%
+}{\end{list}\vspace{0.5em}}
+\newenvironment{rSubsection_Poster}[1]{%
+  {\rolefont #1}\rPubList{\pcounterlabel}{pcounter}%
+}{\end{list}\vspace{0.5em}}
+\newcommand{\rBullets}{%
+  \begin{list}{$\cdot$}{\setlength{\leftmargin}{\rbulletindent}%
+    \setlength{\labelwidth}{1em}\setlength{\labelsep}{0.5em}%
+    \setlength{\itemsep}{-0.5em}\setlength{\topsep}{0pt}}%
 }
-
-\newcommand{\pcounterlabel}{
-  \stepcounter{pcounter}
-  \textbf{P\thepcounter}
-
-}
-
-\newenvironment{rSubsection_Conference}[1]{ 
- {\bf #1} 
-  \begin{list}{\cpcounterlabel}{    \setcounter{cpcounter}{0}% Initialize the counter
-    \setlength{\labelwidth}{3em}% Reserve space for the label
-    \setlength{\labelsep}{0.5em}% Space between the label and the text
-    \setlength{\leftmargin}{4em}% Total indentation for the list items
-    \setlength{\rightmargin}{5pt}% No extra margin on the right
-  }
-  }{
-  \end{list}
-  \vspace{0.5em} % Some space after the list of bullet points
-}
-
-\newenvironment{rSubsection_Journal}[1]{ 
- {\bf #1} 
-  \begin{list}{\jacounterlabel}{ \setcounter{jacounter}{0}% Initialize the counter
-    \setlength{\labelwidth}{3em}% Reserve space for the label
-    \setlength{\labelsep}{0.5em}% Space between the label and the text
-    \setlength{\leftmargin}{4em}% Total indentation for the list items
-    \setlength{\rightmargin}{5pt}% No extra margin on the right
-  }
-  }{
-  \end{list}
-  \vspace{0.5em} % Some space after the list of bullet points
-}
-
-\newenvironment{rSubsection_Poster}[1]{ 
- {\bf #1} 
-  \begin{list}{\pcounterlabel}{ \setcounter{pcounter}{0}% Initialize the counter
-    \setlength{\labelwidth}{3em}% Reserve space for the label
-    \setlength{\labelsep}{0.5em}% Space between the label and the text
-    \setlength{\leftmargin}{4em}% Total indentation for the list items
-    \setlength{\rightmargin}{5pt}% No extra margin on the right
-  }
-  }{
-  \end{list}
-  \vspace{0.5em} % Some space after the list of bullet points
-}
-%----------------------------------------------------------------------------------------
-%	WORK EXPERIENCE FORMATTING
-%----------------------------------------------------------------------------------------
-
-\newenvironment{rSubsection}[4]{ % 4 input arguments - company name, year(s) employed, job title and location
- {\bf #1} \hfill {#2} % Bold company name and date on the right
- \ifthenelse{\equal{#3}{}}{}{ % If the third argument is not specified, don't print the job title and location line
-  \\
-  {\bf{\em #3}} \hfill {\em #4} % Italic job title and location
-  }\smallskip
-  \begin{list}{$\cdot$}{\leftmargin=0em} % \cdot used for bullets, no indentation
-   \itemsep -0.5em \vspace{-0.5em} % Compress items in list together for aesthetics
-  }{
-  \end{list}
-  \vspace{0.5em} % Some space after the list of bullet points
-}
-
-%----------------------------------------------------------------------------------------
-%	TEACHING EXPERIENCE FORMATTING
-%----------------------------------------------------------------------------------------
-
-\newenvironment{rSubsection_ta}[5]{ % 5 input arguments - company name, year(s) employed, job title and location
- {\bf #1} \hfill {#2} % Bold company name and date on the right
- \ifthenelse{\equal{#3}{}}{}{ % If the third argument is not specified, don't print the job title and location line
-  \\
-  {\bf{\em #3}} \hfill {\em #4} % Italic job title and location
-  \\
-  {\em #5}
-  }\smallskip
-  \begin{list}{$\cdot$}{\leftmargin=0em} % \cdot used for bullets, no indentation
-   \itemsep -0.5em \vspace{-0.5em} % Compress items in list together for aesthetics
-  }{
-  \end{list}
-  \vspace{0.5em} % Some space after the list of bullet points
-}
-
-%---------------------------------------------------------------------------------------
-% Projects
-%----------------------------------------------------------------------------------------
-\newenvironment{rSubsection_project}[2]{ % 4 input arguments - company name, year(s) employed, job title and location
- {\bf #1} \hfill {#2} \\ % Bold company name and date on the right 
-  \vspace{0.5em} % Some space after the list of bullet points
-}
-
-%----------------------------------------------------------------------------------------
-%	RESEARCH EXPERIENCE FORMATTING
-%----------------------------------------------------------------------------------------
-\newenvironment{rSubsection_ra}[6]{ % 5 input arguments - company name, year(s) employed, job title and location
- {\bf #1} \hfill {#2} % Bold company name and date on the right
- \ifthenelse{\equal{#3}{}}{}{ % If the third argument is not specified, don't print the job title and location line
-  \\
-  {\bf{\em #3}} \hfill {\em #4} % Italic job title and location
-  \\
-  {\em #5} \\
-  {\em Advisor: #6}
-  }\smallskip
-  \begin{list}{$\cdot$}{\leftmargin=0em} % \cdot used for bullets, no indentation
-   \itemsep -0.5em \vspace{-0.5em} % Compress items in list together for aesthetics
-  }{
-  \end{list}
-  \vspace{0.5em} % Some space after the list of bullet points
-}
-% The below commands define the whitespace after certain things in the document - they can be \smallskip, \medskip or \bigskip
-\def\namesize{\huge} % Size of the name at the top of the document
-\def\addressskip{\smallskip} % The space between the two address (or phone/email) lines
-\def\sectionlineskip{\medskip} % The space above the horizontal line for each section 
-\def\nameskip{\bigskip} % The space after your name at the top
-\def\sectionskip{\medskip} % The space after the heading section
+\newenvironment{rSubsection}[4]{%
+  {\rolefont #1}\hfill{#2}%
+  \ifthenelse{\equal{#3}{}}{}{\\{\orgfont #3}\hfill{\orgfont #4}}%
+  \smallskip\rBullets
+}{\end{list}\vspace{0.5em}}
+\newenvironment{rSubsection_ta}[5]{%
+  {\rolefont #1}\hfill{#2}%
+  \ifthenelse{\equal{#3}{}}{}{\\{\orgfont #3}\hfill{\orgfont #4}\\{\orgfont #5}}%
+  \smallskip\rBullets
+}{\end{list}\vspace{0.5em}}
+\newenvironment{rSubsection_ra}[6]{%
+  {\rolefont #1}\hfill{#2}%
+  \ifthenelse{\equal{#3}{}}{}{\\{\orgfont #3}\hfill{\orgfont #4}\\{\orgfont #5}\\{\orgfont Advisor: #6}}%
+  \smallskip\rBullets
+}{\end{list}\vspace{0.5em}}
+\newenvironment{rSubsection_project}[2]{%
+  {\rolefont #1}\hfill{#2}\\
+}{\vspace{0.5em}}
+\def\namesize{\huge}
+\def\addressskip{\smallskip}
+\def\sectionlineskip{\medskip}
+\def\nameskip{\bigskip}
+\def\sectionskip{\medskip}
