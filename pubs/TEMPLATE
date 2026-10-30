@@ -11,7 +11,8 @@
   pages =         {first–last},
   publisher =     {},
   DOI =           {or URL = {...} if no DOI},
-  category =      {conference, journal, chapter, poster, techreport, patent, patent-application, software, draft},
+  category =      {conference, journal, chapter, poster, techreport, patent, patent-application, artifact, draft},
   acceptpercent = NN,
   note =          {e.g. Accepted for publication},
+  related =       {citekey of a related entry, e.g. the paper an artifact belongs to},
 }
