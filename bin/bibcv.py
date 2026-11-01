@@ -30,13 +30,13 @@ STRINGS.update({m: MONTH_NAMES[n] for m, n in MONTHS.items()})
 
 # CV sections, in the order they appear.
 SECTIONS = [
-    ("conference", "Conference Papers"),
-    ("journal", "Journal Articles"),
+    ("conference", "Refereed Conference Papers"),
+    ("journal", "Refereed Journal Articles"),
     ("chapter", "Book Chapters"),
     ("poster", "Posters"),
     ("techreport", "Technical Reports"),
     ("patent", "Patents"),
-    ("software", "Software"),
+    ("artifact", "Artifacts"),
 ]
 # category -> CV section; None means kept in pubs/ but not listed.
 CATEGORY_SECTION = {
@@ -47,21 +47,21 @@ CATEGORY_SECTION = {
     "techreport": "techreport",
     "patent": "patent",               # issued
     "patent-application": "patent",   # filed / pending
-    "software": "software",
+    "artifact": "artifact",
     "draft": None,
 }
 
-# The only fields allowed in pubs/ (bin/cv check flags anything else).
+# The only fields allowed in pubs/ (makepubs.py check flags anything else).
 # volume, number, pages, publisher are kept for completeness but not printed.
 VALID_FIELDS = ["author", "title", "booktitle", "journal", "howpublished",
                "institution", "year", "month", "day", "volume", "number",
                "pages", "publisher", "doi", "url",
-               "category", "acceptpercent", "note"]
+               "category", "acceptpercent", "note", "related"]
 
 REQUIRED = {
     "inproceedings": ["author", "title", "booktitle", "year", "category"],
     "article": ["author", "title", "journal", "year", "category"],
-    "misc": ["author", "title", "howpublished", "year", "category"],
+    "misc": ["author", "title", "year", "category"],
     "techreport": ["author", "title", "institution", "year", "category"],
     "incollection": ["author", "title", "booktitle", "year", "category"],
 }
@@ -178,6 +178,8 @@ def check(e):
     for name in REQUIRED.get(e.type, ["author", "title", "year", "category"]):
         if not e.get(name):
             problems.append(f"missing field '{name}'")
+    if e.section == "patent" and not e.get("howpublished"):
+        problems.append("missing field 'howpublished' (patent number)")
 
     ## entry file should match file name 
     expect_file = e.key.replace(":", "-") + ".bib"
@@ -256,8 +258,34 @@ def format_date(e):
     return " ".join(parts)
 
 
-def format_entry(e):
-    """One publication as a LaTeX sentence (no \\item)."""
+def related_keys(e):
+    """Citekeys named in e's 'related' field (comma-separated)."""
+    return [k.strip() for k in e.get("related").split(",") if k.strip()]
+
+
+def check_related(entries):
+    """Return (entry, problem) pairs for bad 'related' fields."""
+    keys = {e.key for e in entries}
+    problems = []
+    for e in entries:
+        # conference papers are what others relate to, never the other way
+        if e.section == "conference" and related_keys(e):
+            problems.append((e, "conference papers cannot have 'related'"))
+        for k in related_keys(e):
+            if k == e.key:
+                problems.append((e, "related to itself"))
+            elif k not in keys:
+                problems.append((e, f"related entry '{k}' does not exist"))
+    return problems
+
+
+def format_entry(e, labels=None):
+    """One publication as a LaTeX sentence (no \\item).
+
+    labels maps citekeys to CV labels like 'CP1'; when given, the 'related'
+    field prints as 'Related to CP1' linked to that entry. Without it (the
+    resume), 'related' is left out.
+    """
     s = [format_authors(e) + ".", format_title(e) + "."]
     sec = e.section
     if sec == "patent":
@@ -277,6 +305,10 @@ def format_entry(e):
     note = e.get("note") if sec != "patent" else ""
     if note:
         s.append(tex(note).rstrip(".") + ".")
+    refs = [rf"\hyperlink{{{k}}}{{{labels[k]}}}"
+            for k in related_keys(e) if labels and k in labels]
+    if refs:
+        s.append("Related to " + ", ".join(refs) + ".")
     return " ".join(s)
 
 

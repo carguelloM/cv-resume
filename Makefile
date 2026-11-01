@@ -21,7 +21,7 @@ resume.pdf: resume.tex myresume.sty pubs-resume.tex
 
 # sanity-check every entry in pubs/
 check:
-	bin/cv check
+	bin/makepubs.py check
 
 clean:
 	latexmk -c cv.tex resume.tex

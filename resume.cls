@@ -84,10 +84,12 @@
 }{%
   \end{list}%
 }
-\newcounter{cpcounter}\newcounter{jacounter}\newcounter{pcounter}
+\newcounter{cpcounter}\newcounter{jacounter}\newcounter{pcounter}\newcounter{acounter}\newcounter{ptcounter}
 \newcommand{\cpcounterlabel}{\stepcounter{cpcounter}\textbf{CP\thecpcounter}}
 \newcommand{\jacounterlabel}{\stepcounter{jacounter}\textbf{JA\thejacounter}}
 \newcommand{\pcounterlabel}{\stepcounter{pcounter}\textbf{P\thepcounter}}
+\newcommand{\acounterlabel}{\stepcounter{acounter}\textbf{A\theacounter}}
+\newcommand{\ptcounterlabel}{\stepcounter{ptcounter}\textbf{PT\theptcounter}}
 \newcommand{\rPubList}[2]{%
   \begin{list}{#1}{\setcounter{#2}{0}%
     \setlength{\labelwidth}{3em}\setlength{\labelsep}{0.5em}%
@@ -102,6 +104,13 @@
 \newenvironment{rSubsection_Poster}[1]{%
   {\rolefont #1}\rPubList{\pcounterlabel}{pcounter}%
 }{\end{list}\vspace{0.5em}}
+\newenvironment{rSubsection_Artifact}[1]{%
+  {\rolefont #1}\rPubList{\acounterlabel}{acounter}%
+}{\end{list}\vspace{0.5em}}
+% Patents have their own rSection, so no subheading.
+\newenvironment{rSubsection_Patent}{%
+  \rPubList{\ptcounterlabel}{ptcounter}%
+}{\end{list}}
 \newcommand{\rBullets}{%
   \begin{list}{$\cdot$}{\setlength{\leftmargin}{\rbulletindent}%
     \setlength{\labelwidth}{1em}\setlength{\labelsep}{0.5em}%
@@ -125,6 +134,17 @@
 \newenvironment{rSubsection_project}[2]{%
   {\rolefont #1}\hfill{#2}\\
 }{\vspace{0.5em}}
+% \rEntry[detail]{role}{organization}{dates}: role, organization and dates on
+% one line; the optional detail (lab, advisor, course) in italics below.
+\newcommand{\rEntry}[4][]{%
+  \par\noindent{\rolefont #2}, #3\hfill #4%
+  \ifthenelse{\equal{#1}{}}{}{\\{\orgfont #1}}\par\smallskip}
+% \rDegree[detail]{degree}{dates}{institution}{location}: like \rEntry, with the
+% institution and location on a second line (used in Education).
+\newcommand{\rDegree}[5][]{%
+  \par\noindent{\rolefont #2}\hfill #3\\
+  {\orgfont #4}\hfill{\orgfont #5}%
+  \ifthenelse{\equal{#1}{}}{}{\\{\orgfont #1}}\par\smallskip}
 \def\namesize{\huge}
 \def\addressskip{\smallskip}
 \def\sectionlineskip{\medskip}

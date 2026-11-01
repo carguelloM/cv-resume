@@ -34,9 +34,10 @@
 %----------------------------------------------------------------------------------------
 \usepackage{hyperref}
 \definecolor{linknavy}{HTML}{14416E}
+\definecolor{refred}{HTML}{8B1E1E} % internal links, e.g. "Related to CP1"
 \hypersetup{
   colorlinks=true,
-  linkcolor=linknavy,
+  linkcolor=refred,
   urlcolor=linknavy,
   citecolor=linknavy,
   pdfauthor={Cesar Arguello},
@@ -57,7 +58,7 @@
 %----------------------------------------------------------------------------------------
 \name{Cesar Arguello}
 \address{%
-  \href{mailto:carguello.gr@dartmouth.edu}{carguello.gr@dartmouth.edu} \\
+  \href{mailto:carguello.gr@dartmouth.edu}{carguello.gr@dartmouth.edu} \quad\textbar\quad
   \href{https://www.carguellom.com}{carguellom.com} \quad\textbar\quad
   \href{https://github.com/carguelloM}{github.com/carguelloM}%
   % \quad\textbar\quad \href{https://scholar.google.com/citations?user=XXXX}{Google Scholar}
@@ -70,20 +71,9 @@
 %   EDUCATION
 %----------------------------------------------------------------------------------------
 \begin{rSection}{Education}
-
-\begin{rSubsection}{Ph.D. in Computer Science}{September 2022 -- Present}{Dartmouth College}{Hanover, NH, USA}
-  \item[] \textbf{Advisor:} Dr.~David Kotz \\
-          \textbf{Research area:} Security and Privacy in the Lifecycle of IoT for Consumer Environments
-\end{rSubsection}
-
-\begin{rSubsection}{B.S. in Physics \& Computer Science}{August 2018 -- May 2022}{University of Florida}{Gainesville, FL, USA}
-  \nobullets
-\end{rSubsection}
-
-\begin{rSubsection}{International Baccalaureate Diploma Programme}{August 2016 -- May 2018}{UWC Red Cross Nordic}{Flekke, Norway}
-  \nobullets
-\end{rSubsection}
-
+\rDegree[Advisors: David Kotz and Timothy Pierson]{Ph.D. in Computer Science}{Sep 2022 -- Present}{Dartmouth College}{Hanover, NH, USA}
+\rDegree{B.S. in Physics \& Computer Science}{Aug 2018 -- May 2022}{University of Florida}{Gainesville, FL, USA}
+\rDegree{International Baccalaureate Diploma Programme}{Aug 2016 -- May 2018}{UWC Red Cross Nordic}{Flekke, Norway}
 \end{rSection}
 
 %----------------------------------------------------------------------------------------
@@ -96,96 +86,43 @@
 %   RESEARCH EXPERIENCE
 %----------------------------------------------------------------------------------------
 \begin{rSection}{Research Experience}
-
-  \begin{rSubsection_ra}{Graduate Research Assistant}{January 2023 -- Present}{Dartmouth College}{Hanover, NH, USA}{Department of Computer Science}{Dr.~David Kotz and Dr.~Timothy Pierson}
-    \item Design, implement, and debug embedded systems across the hardware--software stack in C, C++, Python, and Verilog, building real-time wireless systems on software-defined radio platforms.
-    \item Design and implement experiments and circuit prototypes for novel applications of harmonic radar in IoT security, spanning theoretical modeling through field measurement.
-    \item Develop research plans targeting conference and journal publication, and review and synthesize the IoT security literature to position new work.
-  \end{rSubsection_ra}
-
-  \begin{rSubsection_ra}{Research Assistant}{June 2021 -- May 2022}{University of Florida}{Gainesville, FL, USA}{Florida Institute for Cybersecurity Research}{Dr.~Sara Rampazzi and Dr.~Kevin Butler}
-    \item Designed and ran experiments to test theoretical frameworks for EM side-channel disassembly.
-    \item Collected, processed, and analyzed EM traces using statistical and machine learning models.
-    \item Developed research plans leading to project deliverables, including a peer-reviewed poster.
-  \end{rSubsection_ra}
-
-  \begin{rSubsection_ra}{Research Assistant}{May 2021 -- May 2022}{University of Florida}{Gainesville, FL, USA}{Department of Physics, SuperCDMS HVeV-DMC Data Analysis and Simulations Team}{Dr.~Tarek Saab}
-    \item Built Ionization Measurement with Phonons At Cryogenic Temperatures (IMPACT) simulation files for the Geant4 simulator.
-    \item Analyzed Geant4 simulation output in Python.
-    \item Led group discussions on simulation results.
-  \end{rSubsection_ra}
-
-  \begin{rSubsection_ra}{Research Assistant}{August 2020 -- February 2021}{University of Florida}{Gainesville, FL, USA}{Department of Mechanical and Aerospace Engineering, ADAMUS Lab}{Dr.~Riccardo Bevilacqua}
-    \item Designed, developed, and deployed C++ libraries controlling a CubeSat's magnetometers, EPS, and battery over I\textsuperscript{2}C, integrated with a BeagleBone Black microcontroller.
-    \item Tested and debugged flight component prototypes.
-    \item Authored weekly reports on flight software progress, blockers, and design decisions.
-  \end{rSubsection_ra}
-
+\rEntry[Advisors: David Kotz and Timothy Pierson]{Graduate Research Assistant}{Dartmouth College}{Jan 2023 -- Present}
+\rEntry[Florida Institute for Cybersecurity Research \\ Advisors: Sara Rampazzi and Kevin Butler]{Undergraduate Research Assistant}{University of Florida}{Jun 2021 -- May 2022}
+\rEntry[SuperCDMS Collaboration, Department of Physics \\ Advisor: Tarek Saab]{Undergraduate Research Assistant}{University of Florida}{May 2021 -- May 2022}
+\rEntry[ADAMUS Lab, Mechanical and Aerospace Engineering \\ Advisor: Riccardo Bevilacqua]{Undergraduate Research Assistant}{University of Florida}{Aug 2020 -- Feb 2021}
 \end{rSection}
 
 %----------------------------------------------------------------------------------------
 %   TEACHING EXPERIENCE
 %----------------------------------------------------------------------------------------
 \begin{rSection}{Teaching Experience}
-
-  \begin{rSubsection_ta}{Graduate Teaching Assistant}{September 2022 -- January 2023}{Dartmouth College}{Hanover, NH, USA}{CS 50: Software Design and Implementation}
-    \item Built and maintained automated grading scripts in Bash and Python for student assignments.
-    \item Conducted code reviews for programming projects, giving feedback on correctness, efficiency, and style.
-    \item Held office hours providing one-on-one mentorship on course material and projects.
-  \end{rSubsection_ta}
-
-  \begin{rSubsection_ta}{Undergraduate Teaching Assistant}{January 2021 -- May 2021}{University of Florida}{Gainesville, FL, USA}{CDA 3101: Introduction to Computer Organization}
-    \item Led discussion sections on lecture material to help students meet course learning objectives.
-    \item Managed assignment evaluation and provided detailed written feedback.
-    \item Held office hours to review course material and answer questions on assignments.
-  \end{rSubsection_ta}
-
+\rEntry[CS 50: Software Design and Implementation \hfill \textup{Fall 2022, Winter 2023, Spring 2023}]{Graduate Teaching Assistant}{Dartmouth College}{}
+\rEntry[CDA 3101: Introduction to Computer Organization \hfill \textup{Spring 2021}]{Undergraduate Teaching Assistant}{University of Florida}{}
 \end{rSection}
 
 %----------------------------------------------------------------------------------------
 %   INDUSTRY EXPERIENCE
 %----------------------------------------------------------------------------------------
 \begin{rSection}{Industry Experience}
-
-\begin{rSubsection}{Product Development Engineer Intern}{January 2022 -- May 2022}{Intel Corporation}{Santa Clara, CA, USA}
-  \item Designed, developed, and debugged sort test programs for server products.
-  \item Tested, validated, modified, and redesigned circuits to guarantee component margin to specification.
-  \item Evaluated component specification against measured performance to match component requirements with production equipment capability.
-\end{rSubsection}
-
+\rEntry{Product Development Engineer Intern}{Intel Corporation}{Jan 2022 -- May 2022}
 \end{rSection}
 
 %----------------------------------------------------------------------------------------
 %   SERVICE
 %----------------------------------------------------------------------------------------
 \begin{rSection}{Service}
-\textbf{Artifact Evaluation Committee}, Network and Distributed System Security Symposium (NDSS) 2027 \\
-\textbf{External Reviewer}, IEEE GLOBECOM 2026
+\textbf{Artifact Evaluation Committee}, NDSS Symposium \hfill 2027 \\
+\textbf{External Reviewer}, IEEE GLOBECOM \hfill 2026 \\
+\textbf{Panelist}, Broadening Participation in Computing Workshop \hfill 2024
 \end{rSection}
 
 %----------------------------------------------------------------------------------------
 %   HONORS AND AWARDS
 %----------------------------------------------------------------------------------------
 \begin{rSection}{Honors \& Awards}
-\textbf{\textit{Cum Laude}}, B.S., University of Florida \hfill \textit{May 2022} \\
-\textbf{Phi Beta Kappa}, Honor Society \hfill \textit{May 2022} \\
-\textbf{Davis United World College Scholar} \hfill \textit{August 2018}
-\end{rSection}
-
-%----------------------------------------------------------------------------------------
-%   TECHNICAL SKILLS
-%----------------------------------------------------------------------------------------
-\begin{rSection}{Technical Skills}
-
-\begin{tabular}{@{} >{\bfseries}p{1.35in} @{\hspace{2ex}} p{\dimexpr\linewidth-1.35in-2ex\relax} @{}}
-Programming       & Python, C, C++, Verilog, MATLAB, Bash \\
-Wireless \& SDR   & GNU Radio, USRP, HackRF, ADALM-Pluto/AntSDR, gr-ieee802-11, openwifi, 802.11 PHY/MAC \\
-Security tooling  & Wireshark, tcpdump, Scapy, aircrack-ng, hostapd, wpa\_supplicant \\
-Libraries         & PyTorch, NumPy, SciPy, scikit-learn, Matplotlib \\
-Tools             & Git, GDB, Vivado, Docker, Linux, \LaTeX{} \\
-Spoken languages  & English, Spanish \\
-\end{tabular}
-
+\textbf{\textit{Cum Laude}}, B.S., University of Florida \hfill May 2022 \\
+\textbf{Phi Beta Kappa}, Honor Society \hfill May 2022 \\
+\textbf{Davis United World College Scholar} \hfill Aug 2018
 \end{rSection}
 
 %----------------------------------------------------------------------------------------
